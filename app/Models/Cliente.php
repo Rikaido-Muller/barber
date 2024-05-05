@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Cliente extends Model
 {
     protected $table = 'clientes';
-    protected $fillabel = ['nome', 'telefone', 'email'];
+    protected $fillable = ['nome', 'telefone', 'email'];
 }

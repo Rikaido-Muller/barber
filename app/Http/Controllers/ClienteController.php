@@ -9,9 +9,13 @@ class ClienteController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $clientes = Cliente::all();
+        $search = $request->input('search');
+        $clientes = Cliente::where('nome', 'like', '%'.$search.'%')
+                         ->orWhere('telefone', 'like', '%'.$search.'%')
+                         ->paginate(10);
+
         return view('clientes.index', compact('clientes'));
     }
 
@@ -32,6 +36,8 @@ class ClienteController extends Controller
             'nome' => $request->input('nome'),
             'telefone' => $request->input('telefone'),
             'email' => $request->input('email')
+
+            
         ]);
 
         $clientes->save();
@@ -44,7 +50,10 @@ class ClienteController extends Controller
      */
     public function show(string $id)
     {
-        //
+        // Encontra um autor no banco de dados com o ID fornecido
+        $cliente = Cliente::findOrFail($id);
+        // Retorna a view 'autores.show' e passa o autor como parâmetro
+        return view('clientes.show', compact('cliente'));
     }
 
     /**
@@ -52,7 +61,10 @@ class ClienteController extends Controller
      */
     public function edit(string $id)
     {
-        //
+   // Encontra um autor no banco de dados com o ID fornecido
+   $cliente = Cliente::findOrFail($id);
+   // Retorna a view 'autores.edit' e passa o autor como parâmetro
+   return view('clientes.edit', compact('cliente'));
     }
 
     /**
@@ -60,7 +72,16 @@ class ClienteController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // Encontra um autor no banco de dados com o ID fornecido
+        $cliente = Cliente::findOrFail($id);
+        // Atualiza os campos do autor com os dados fornecidos no request
+        $cliente->nome = $request->input('nome');
+        $cliente->telefone = $request->input('telefone');
+        $cliente->email = $request->input('email');
+        // Salva as alterações no cliente
+        $cliente->save();
+        // Redireciona para a rota 'clientes.index' após salvar
+        return redirect()->route('clientes.index')->with('success', 'Cliente criado com sucesso!');
     }
 
     /**
@@ -68,6 +89,11 @@ class ClienteController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // Encontra um autor no banco de dados com o ID fornecido
+        $cliente = Cliente::findOrFail($id);
+        // Exclui o autor do banco de dados
+        $cliente->delete();
+        // Redireciona para a rota 'autores.index' após excluir
+        return redirect()->route('clientes.index')->with('success', 'Cliente Excluido com sucesso!');
     }
 }
