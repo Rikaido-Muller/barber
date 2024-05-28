@@ -1,6 +1,6 @@
 <x-app-layout>
     <head>
-        <!--<link rel="stylesheet" href="{{ asset('css/barbearias/create.css') }}">-->
+        <link rel="stylesheet" href="{{ asset('css/barbearias/create.css') }}">
         <title>Nova Barbearia</title>
     </head>
     <x-slot name="header">

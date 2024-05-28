@@ -1,6 +1,6 @@
 <x-app-layout>
     <head>
-     <!--<link rel="stylesheet" href="{{ asset('css/barbearias/edit.css') }}">-->
+     <link rel="stylesheet" href="{{ asset('css/barbearias/edit.css') }}">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Editar Barbearia</title>

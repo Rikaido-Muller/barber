@@ -1,6 +1,8 @@
 <x-app-layout>
 
- <!--<link rel="stylesheet" href="{{ asset('css/barbearias/index.css') }}">-->
+ <link rel="stylesheet" href="{{ asset('css/barbearias/index.css') }}">
+ <script src="{{asset('js/barbearias.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-white leading-tight">
             {{ __('Lista Barbearias') }}
@@ -34,10 +36,11 @@
                         <td>
                             <a href="{{ route('barbearias.show', $barbearia->id) }}" class="btn btn-info">Detalhes</a>
                             <a href="{{ route('barbearias.edit', $barbearia->id) }}" class="btn btn-warning">Editar</a>
-                            <form action="{{ route('barbearias.destroy', $barbearia->id) }}" method="POST" style="display: inline;">
+                            <form id="form-{{ $barbearia->id}}" action="{{route('barbearias.destroy', $barbearia->id) }}" method="POST" style="display: inline;">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Excluir</button>
+                                <button type="button" class="btn btn-danger"
+                                        onclick="deletar({{$barbearia->id}})">Excluir</button>
                             </form>
                         </td>
                     </tr>
