@@ -47,7 +47,7 @@ class BarbeirosController extends Controller
        
         $barbeiro = Barbeiro::findOrFail($id);
 
-        return view('barbeiros.show', compact('barbeiro'));
+        return view('barbeiros.show', compact('barbeiros'));
     }
 
  

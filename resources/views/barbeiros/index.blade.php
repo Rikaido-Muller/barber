@@ -35,7 +35,7 @@
                         <td id="nome">{{ $barbeiro->nome }}</td>
                         <td class="colunas">{{ $barbeiro->telefone}}</td>
                         <td>{{ $barbeiro->email }}</td>
-                        <td>{{ $barbeiro->barbearias->nome }}</td>
+                        <td>{{$barbeiro->barbearias->nome}}</td>
                         <td>
                             <a href="{{ route('barbeiros.show', $barbeiro->id) }}" class="btn btn-info">Detalhes</a>
                             <a href="{{ route('barbeiros.edit', $barbeiro->id) }}" class="btn btn-warning">Editar</a>
@@ -52,6 +52,6 @@
         </table>
         <br>
         {{ $barbeiros->links() }}
-        <br>
+        <br>    
     </div>
 </x-app-layout>
