@@ -17,11 +17,11 @@
                 </div>
                 <div class="form-group">
                     <label for="valor">Valor:</label>
-                    <input type="text" name="valor" value="{{ $servico->telefone }}">
+                    <input type="text" name="valor" value="{{ $servico->valor }}">
                 </div>
                 <div class="form-group">
                     <label for="duracao">Duração (min):</label>
-                    <input type="text" name="duracao" value="{{ $servico->email }}">
+                    <input type="text" name="duracao" value="{{ $servico->duracao }}">
                 </div>
                 <button type="submit" class="btn btn-success">Salvar Alterações</button>
                 <a href="{{ route('servicos.index') }}" class="btn btn-secondary">Cancelar</a>

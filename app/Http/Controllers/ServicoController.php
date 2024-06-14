@@ -41,7 +41,7 @@ class ServicoController extends Controller
        
         $servico = Servico::findOrFail($id);
 
-        return view('servicos.show', compact('servicos'));
+        return view('servicos.show', compact('servico'));
     }
 
  

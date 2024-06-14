@@ -24,8 +24,8 @@
                     <input type="text" name="email" value="{{ $barbeiro->email }}">
                 </div>
                 <div class="form-group">
-                <label for="barbearia_id">Barbearia</label>
-                <select class="form-control" name="barbearia_id" required>
+                <label for="id_barbearia">Barbearia</label>
+                <select class="form-control" name="id_barbearia" required>
                     <option value="">Selecione uma barbearia</option>
                     @foreach($autores as $autor)
                         <option value="{{ $barbearia->id }}" {{ $autor->id == $barbeiro->barbearia_id ? 'selected' : '' }}>{{ $barbearia->nome }}</option>

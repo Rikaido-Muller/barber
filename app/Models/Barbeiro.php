@@ -14,6 +14,7 @@ class Barbeiro extends Model
 
     public function barbearia() {
         return $this->belongsTo(Barbearia::class);
+    
     }
 
 }
