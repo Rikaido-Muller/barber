@@ -32,7 +32,7 @@
                     <tr>
                         <td class="colunas">{{ $servico->id }}</td>
                         <td id="nome">{{ $servico->nome }}</td>
-                        <td class="colunas">{{ $servico->valor}}</td>
+                        <td class="colunas">{{ 'R$ '.$servico->valor}}</td>
                         <td>{{ $servico->duracao }}</td>
                         <td>
                             <a href="{{ route('servicos.show', $servico->id) }}" class="btn btn-info">Detalhes</a>
