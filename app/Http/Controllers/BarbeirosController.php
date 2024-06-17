@@ -13,6 +13,7 @@ class BarbeirosController extends Controller
         $search = $request->input('search');
         $barbeiros = Barbeiro::where('nome', 'like', '%'.$search.'%')
                          ->orWhere('telefone', 'like', '%'.$search.'%')
+                         ->with('barbearia')
                          ->paginate(10);
 
         return view('barbeiros.index', compact('barbeiros'));

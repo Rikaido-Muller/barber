@@ -27,7 +27,7 @@
         </div>
         <div class="author-meta">
           <span class="author-label">Barbearia</span>
-          <span class="author-info">{{ $barbeiro->barbearias->nome }}</span>
+          <span class="author-info">{{ $barbeiro->barbearia->nome }}</span>
         </div>
       </div>
       <a href="{{ route('barbeiros.index') }}" class="btn-return">Voltar</a>

@@ -35,7 +35,7 @@
                         <td id="nome">{{ $barbeiro->nome }}</td>
                         <td class="colunas">{{ $barbeiro->telefone}}</td>
                         <td>{{ $barbeiro->email }}</td>
-                        <td>{{ $barbeiro->barbearias->nome}}</td>
+                        <td>{{ $barbeiro->barbearia->nome}}</td>
                        
                         <td>
                             <a href="{{ route('barbeiros.show', $barbeiro->id) }}" class="btn btn-info">Detalhes</a>
@@ -44,7 +44,7 @@
                                 @csrf
                                 @method('DELETE')
                                 <button type="button" class="btn btn-danger"
-                                        onclick="deletar({$barbeiro->id})">Excluir</button>
+                                        onclick="deletar({{$barbeiro->id}})">Excluir</button>
                             </form>
                         </td>
                     </tr>

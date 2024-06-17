@@ -13,7 +13,7 @@ class Barbeiro extends Model
     protected $fillable = ['nome', 'telefone', 'email', 'id_barbearia'];
 
     public function barbearia() {
-        return $this->belongsTo(Barbearia::class);
+        return $this->belongsTo(Barbearia::class, 'id_barbearia');
     
     }
 
